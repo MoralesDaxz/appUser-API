@@ -6,7 +6,6 @@ import { firestore } from "firebase-admin";
 import { db } from "../firebase/admin";
 
 //Obtener todos los users
-
 const getUsers = (req: Request, res: Response) => {
   db.collection("users")
     .get()
@@ -26,7 +25,6 @@ const getUsers = (req: Request, res: Response) => {
 };
 
 // crear user
-
 const createUser = async (req: Request, res: Response) => {
   try {
     const userRef = db.collection("users").doc(generateKsuid(USER_ID_PREFIX));
@@ -44,7 +42,6 @@ const createUser = async (req: Request, res: Response) => {
 };
 
 // Actualizar un user
-
 const updateUser = async (req: Request, res: Response) => {
   const id = req.params.id;
   try {
@@ -61,7 +58,6 @@ const updateUser = async (req: Request, res: Response) => {
 };
 
 //Obtener user por id
-
 const getUserById = async (req: Request, res: Response) => {
   const id = req.params.id;
   const userRef = db.collection("users").doc(id);
@@ -85,7 +81,6 @@ const getUserById = async (req: Request, res: Response) => {
 };
 
 //Eliminar user
-
 const deleteUser = async (req: Request, res: Response) => {
     const id = req.params.id;
     try {
